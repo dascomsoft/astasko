@@ -42,7 +42,7 @@ const News = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section Impactante */}
-      <div className="relative h-[50vh] md:h-[60vh] bg-gradient-to-br from-tasko-dark via-tasko-blue to-purple-900">
+      <div className="relative h-[50vh] sm:h-[50vh] pt-[18rem] pb-[18rem] md:h-[60vh] bg-gradient-to-br from-tasko-dark via-tasko-blue to-purple-900">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: 'url(/images/galltasko5.jpg)' }}
