@@ -27,7 +27,7 @@ const Footer = () => {
 
         {/* Contact simple */}
         <div className="text-center text-gray-400 text-sm mb-6">
-          <p>📍 Quartier Diguel, N'Djamena • 📞 +235 XX XX XX XX</p>
+          <p>📍 Quartier Diguel, N'Djamena • 📞 +235 98031514</p>
         </div>
 
         {/* Sponsors et copyright */}
