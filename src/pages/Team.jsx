@@ -55,7 +55,7 @@ const Team = () => {
     {
       name: "Président Fondateur",
       role: "Vision & Direction",
-      image: "/images/taskopresi.jpg",
+      image: "/images/taskopresi2.jpg",
       bio: "À l'origine du projet Tasko, stratège du développement club",
       specialty: "Leadership & Management",
       quote: "Nous ne construisons pas une équipe, nous créons une légende."

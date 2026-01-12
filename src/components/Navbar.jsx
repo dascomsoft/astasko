@@ -9,8 +9,10 @@ const Navbar = () => {
     { name: 'À Propos', path: '/about' },
     { name: 'Équipe', path: '/team' },
     { name: 'Actualités', path: '/news' },
+    { name: 'Hommage', path: '/hommage' },
     { name: 'Galerie', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
+
   ]
 
   return (
