@@ -6,7 +6,9 @@ import 'aos/dist/aos.css'
 import HeroSection from '../components/HeroSection'
 import NewsCard from '../components/NewsCard'
 import { news } from '../data/news'
+import { Link
 
+ } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate()
 
@@ -127,14 +129,14 @@ const Home = () => {
                   data-aos="fade-up"
                   data-aos-delay="800"
                 >
-                  <a
-                    href="/hommage"
+                  <Link
+                    to="/hommage"
                     className="inline-flex items-center bg-gradient-to-r from-tasko-yellow/20 to-tasko-yellow/10 text-tasko-yellow px-5 py-3 rounded-lg sm:rounded-xl font-bold hover:bg-tasko-yellow/30 transition-all duration-300 border border-tasko-yellow/30 shadow-lg hover:shadow-xl group text-sm sm:text-base"
                   >
                     <span className="mr-2 sm:mr-3">👑</span>
                     Voir l'Hommage au Président
                     <span className="ml-2 sm:ml-3 text-lg sm:text-xl group-hover:translate-x-2 transition-transform duration-300">→</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
