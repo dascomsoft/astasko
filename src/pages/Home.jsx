@@ -6,9 +6,8 @@ import 'aos/dist/aos.css'
 import HeroSection from '../components/HeroSection'
 import NewsCard from '../components/NewsCard'
 import { news } from '../data/news'
-import { Link
+import { Link } from 'react-router-dom'
 
- } from 'react-router-dom'
 const Home = () => {
   const navigate = useNavigate()
 
@@ -29,6 +28,7 @@ const Home = () => {
         })
       }, 300)
     }
+    window.scrollTo(0,0)
   }, [])
 
   const handleNewsClick = (newsId) => {
@@ -245,149 +245,290 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Section Prochain Match - Version Mobile Premium */}
-      <section className="py-12 md:py-24 bg-gradient-to-b from-tasko-dark to-gray-900 text-white">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div
-            className="text-center mb-8 sm:mb-12"
-            data-aos="fade-up"
-          >
-            <span className="inline-block bg-tasko-yellow/20 text-tasko-yellow px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
-              🗓️ PROCHAINE RENCONTRE
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-              La Bataille de <span className="text-tasko-yellow">Diguel</span> Approche
-            </h2>
-            <p className="text-tasko-light text-base sm:text-lg max-w-2xl mx-auto px-4">
-              Première journée du championnat. L'heure de vérité a sonné.
-            </p>
+<section className="py-12 md:py-24 bg-gradient-to-b from-tasko-dark to-gray-900 text-white">
+  <div className="container mx-auto px-4 sm:px-6">
+    <div
+      className="text-center mb-8 sm:mb-12"
+      data-aos="fade-up"
+    >
+      <span className="inline-block bg-tasko-yellow/20 text-tasko-yellow px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
+        🗓️ DÉBUT DU CHAMPIONNAT
+      </span>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+        La Saison <span className="text-tasko-yellow">2025-2026</span> Démarre Fort
+      </h2>
+      <p className="text-tasko-light text-base sm:text-lg max-w-2xl mx-auto px-4">
+        Le combat commence maintenant. Trois matchs cruciaux pour lancer notre campagne
+      </p>
+    </div>
+
+    {/* Premier match principal en vedette */}
+    <div
+      className="max-w-4xl mx-auto"
+      data-aos="zoom-in"
+      data-aos-delay="200"
+    >
+      <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-lg sm:shadow-2xl">
+        {/* En-tête du match */}
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-block bg-tasko-blue/30 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-base mb-2">
+            📍 Match d'Ouverture • Stade de Diguel
           </div>
+          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-yellow">
+            18 Janvier 2026 • 15:00
+          </div>
+          <div className="text-sm sm:text-base text-gray-300 mt-2">
+            Journée 1 • Championnat D2
+          </div>
+        </div>
 
-          <div
-            className="max-w-4xl mx-auto"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-lg sm:shadow-2xl">
-              {/* En-tête du match */}
-              <div className="text-center mb-6 sm:mb-8">
-                <div className="inline-block bg-tasko-blue/30 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-bold text-xs sm:text-base mb-2">
-                  📍 Stade de Diguel • N'Djamena
-                </div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-yellow">
-                  15 Janvier 2026 • 15:00
-                </div>
-              </div>
-
-              {/* Affichage des équipes - Version mobile verticale */}
-              <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 mb-8 sm:mb-10">
-                {/* AS Tasko */}
-                <div className="text-center w-full max-w-[200px] sm:max-w-none">
-                  <div className="mb-3 sm:mb-4">
-                    <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-tasko-yellow">AS</div>
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold">TASKO</div>
-                  </div>
-                  <div className="bg-tasko-yellow/20 px-3 sm:px-4 py-1 sm:py-2 rounded-full inline-block">
-                    <span className="flex items-center justify-center text-xs sm:text-sm">
-                      <span className="mr-1 sm:mr-2">🏠</span>
-                      <span className="font-semibold">Domicile</span>
-                    </span>
-                  </div>
-                  <div className="mt-2 sm:mt-4 text-xs sm:text-sm text-gray-300">
-                    Génération Montante • Invaincue à domicile
-                  </div>
-                </div>
-
-                {/* VS */}
-                <div className="text-center my-4 sm:my-0">
-                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2">VS</div>
-                  <div className="text-sm sm:text-base text-gray-300">Journée 1 • Championnat D2</div>
-                  <div className="mt-2 sm:mt-4 bg-white/10 px-3 sm:px-4 py-1 sm:py-2 rounded-full">
-                    <span className="flex items-center text-xs sm:text-sm">
-                      <span className="mr-1 sm:mr-2">⚔️</span>
-                      <span>Choc attendu</span>
-                    </span>
-                  </div>
-                </div>
-
-                {/* AS Police */}
-                <div className="text-center w-full max-w-[200px] sm:max-w-none">
-                  <div className="mb-3 sm:mb-4">
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold">AS POLICE</div>
-                    <div className="text-sm sm:text-base text-gray-300 mt-1">Adversaire redoutable</div>
-                  </div>
-                  <div className="bg-red-500/20 px-3 sm:px-4 py-1 sm:py-2 rounded-full inline-block">
-                    <span className="flex items-center justify-center text-xs sm:text-sm">
-                      <span className="mr-1 sm:mr-2">🚓</span>
-                      <span className="font-semibold">Extérieur</span>
-                    </span>
-                  </div>
-                  <div className="mt-2 sm:mt-4 text-xs sm:text-sm text-gray-300">
-                    Défense solide • Expérimenté
-                  </div>
-                </div>
-              </div>
-
-              {/* Informations complémentaires - Grid adapté mobile */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-10">
-                {[
-                  { icon: '🎫', label: 'Billetterie', value: 'Ouverte', color: 'bg-green-500/20' },
-                  { icon: '⏰', label: 'Ouverture', value: '14:00', color: 'bg-blue-500/20' },
-                  { icon: '📊', label: 'Prévisions', value: 'Victoire', color: 'bg-tasko-yellow/20' },
-                  { icon: '👥', label: 'Capacité', value: '500+', color: 'bg-purple-500/20' }
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className={`${item.color} p-3 sm:p-4 rounded-lg sm:rounded-xl text-center`}
-                  >
-                    <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{item.icon}</div>
-                    <div className="text-xs sm:text-sm text-gray-300">{item.label}</div>
-                    <div className="font-bold text-base sm:text-lg mt-1">{item.value}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Actions - Boutons empilés sur mobile */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <button className="bg-tasko-yellow text-tasko-dark px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center text-sm sm:text-base">
-                  <span className="mr-2">📅</span>
-                  Ajouter au Calendrier
-                </button>
-                <button className="bg-white/20 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white/30 transition-all duration-300 border border-white/30 flex items-center justify-center text-sm sm:text-base">
-                  <span className="mr-2">📍</span>
-                  Voir l'Itinéraire
-                </button>
-              </div>
+        {/* Affichage des équipes - Version mobile verticale */}
+        <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 mb-8 sm:mb-10">
+          {/* AS Tasko */}
+          <div className="text-center w-full max-w-[200px] sm:max-w-none">
+            <div className="mb-3 sm:mb-4">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-tasko-yellow">AS</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold">TASKO</div>
+            </div>
+            <div className="bg-tasko-yellow/20 px-3 sm:px-4 py-1 sm:py-2 rounded-full inline-block">
+              <span className="flex items-center justify-center text-xs sm:text-sm">
+                <span className="mr-1 sm:mr-2">🏠</span>
+                <span className="font-semibold">Domicile</span>
+              </span>
+            </div>
+            <div className="mt-2 sm:mt-4 text-xs sm:text-sm text-gray-300">
+              Génération Montante • Début de saison
             </div>
           </div>
 
-          {/* Countdown */}
-          <div
-            className="mt-12 sm:mt-16 text-center"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Le compte à rebours est lancé</div>
-            <div className="flex justify-center flex-wrap gap-3 sm:gap-4 md:gap-8 px-4">
-              {[
-                { value: '12', label: 'Jours' },
-                { value: '18', label: 'Heures' },
-                { value: '45', label: 'Minutes' },
-                { value: '22', label: 'Secondes' }
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl min-w-[60px] sm:min-w-[70px]"
-                >
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-tasko-yellow">{item.value}</div>
-                  <div className="text-xs sm:text-sm text-gray-300 mt-1">{item.label}</div>
-                </div>
-              ))}
+          {/* VS */}
+          <div className="text-center my-4 sm:my-0">
+            <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2">VS</div>
+            <div className="text-sm sm:text-base text-gray-300">Première Confrontation</div>
+            <div className="mt-2 sm:mt-4 bg-white/10 px-3 sm:px-4 py-1 sm:py-2 rounded-full">
+              <span className="flex items-center text-xs sm:text-sm">
+                <span className="mr-1 sm:mr-2">⚔️</span>
+                <span>Choc d'ouverture</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Agri Tchad */}
+          <div className="text-center w-full max-w-[200px] sm:max-w-none">
+            <div className="mb-3 sm:mb-4">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold">AGRI TCHAD</div>
+              <div className="text-sm sm:text-base text-gray-300 mt-1">Adversaire sérieux</div>
+            </div>
+            <div className="bg-green-500/20 px-3 sm:px-4 py-1 sm:py-2 rounded-full inline-block">
+              <span className="flex items-center justify-center text-xs sm:text-sm">
+                <span className="mr-1 sm:mr-2">🌾</span>
+                <span className="font-semibold">Extérieur</span>
+              </span>
+            </div>
+            <div className="mt-2 sm:mt-4 text-xs sm:text-sm text-gray-300">
+              Expérience • Solidité défensive
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Message motivationnel */}
+        <div className="mb-6 sm:mb-8 bg-tasko-yellow/10 border border-tasko-yellow/20 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+          <div className="flex items-start">
+            <div className="text-2xl sm:text-3xl mr-3 sm:mr-4">🔥</div>
+            <div>
+              <h4 className="font-bold text-white text-lg sm:text-xl mb-2">Le moment est arrivé</h4>
+              <p className="text-gray-300 text-sm sm:text-base">
+                Le championnat commence maintenant, et chaque match sera une bataille à gagner. 
+                Donnez tout : l'engagement, la discipline, la solidarité et le courage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Informations complémentaires - Grid adapté mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-10">
+          {[
+            { icon: '🎫', label: 'Billetterie', value: 'Ouverte', color: 'bg-green-500/20' },
+            { icon: '⏰', label: 'Ouverture', value: '14:00', color: 'bg-blue-500/20' },
+            { icon: '📊', label: 'Prévisions', value: 'Victoire', color: 'bg-tasko-yellow/20' },
+            { icon: '👥', label: 'Capacité', value: '500+', color: 'bg-purple-500/20' }
+          ].map((item, index) => (
+            <div
+              key={index}
+              className={`${item.color} p-3 sm:p-4 rounded-lg sm:rounded-xl text-center`}
+            >
+              <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{item.icon}</div>
+              <div className="text-xs sm:text-sm text-gray-300">{item.label}</div>
+              <div className="font-bold text-base sm:text-lg mt-1">{item.value}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Actions - Boutons empilés sur mobile */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <button className="bg-tasko-yellow text-tasko-dark px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center text-sm sm:text-base">
+            <span className="mr-2">📅</span>
+            Ajouter au Calendrier
+          </button>
+          <button className="bg-white/20 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-white/30 transition-all duration-300 border border-white/30 flex items-center justify-center text-sm sm:text-base">
+            <span className="mr-2">📍</span>
+            Voir l'Itinéraire
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {/* Grille des trois premiers matchs */}
+    <div 
+      className="mt-12 sm:mt-16"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
+      <div className="text-center mb-8 sm:mb-10">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
+          Les Trois Premières Batailles
+        </h3>
+        <p className="text-tasko-light text-base sm:text-lg max-w-2xl mx-auto">
+          Un départ intense avec trois matchs en neuf jours
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        {[
+          {
+            date: '18 Janvier',
+            time: '15:00',
+            opponent: 'Agri Tchad',
+            venue: '🏠 Domicile',
+            color: 'bg-tasko-yellow/20',
+            icon: '🌾',
+            description: 'Match d\'ouverture du championnat'
+          },
+          {
+            date: '23 Janvier',
+            time: '16:00',
+            opponent: 'AS Douanes',
+            venue: '🏠 Domicile',
+            color: 'bg-blue-500/20',
+            icon: '🏢',
+            description: 'Deuxième journée, confrontation stratégique'
+          },
+          {
+            date: '26 Janvier',
+            time: '15:30',
+            opponent: 'Bon Berger',
+            venue: '🏠 Domicile',
+            color: 'bg-green-500/20',
+            icon: '🐑',
+            description: 'Troisième journée, match rapide'
+          }
+        ].map((match, index) => (
+          <div 
+            key={index}
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300"
+          >
+            <div className="text-center mb-4">
+              <div className={`inline-block ${match.color} px-3 sm:px-4 py-1 sm:py-2 rounded-full mb-2`}>
+                <div className="text-2xl">{match.icon}</div>
+              </div>
+              <div className="text-xl sm:text-2xl font-bold text-white">{match.date}</div>
+              <div className="text-tasko-yellow text-lg sm:text-xl font-semibold">{match.time}</div>
+            </div>
+            
+            <div className="text-center mb-4">
+              <div className="flex items-center justify-center gap-4 mb-3">
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-bold text-white">AS TASKO</div>
+                  <div className="text-xs text-gray-300">Notre équipe</div>
+                </div>
+                <div className="text-2xl font-bold text-white">VS</div>
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl font-bold text-white">{match.opponent}</div>
+                  <div className="text-xs text-gray-300">Adversaire</div>
+                </div>
+              </div>
+              <div className="text-sm sm:text-base text-gray-300">{match.description}</div>
+            </div>
+            
+            <div className="text-center pt-4 border-t border-white/10">
+              <div className="inline-flex items-center text-tasko-yellow text-sm sm:text-base">
+                <span className="mr-2">📍</span>
+                <span>{match.venue}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Message aux joueurs et supporters */}
+    <div 
+      className="mt-12 sm:mt-16 max-w-4xl mx-auto"
+      data-aos="fade-up"
+      data-aos-delay="400"
+    >
+      <div className="bg-gradient-to-r from-tasko-blue/20 to-tasko-dark/20 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-3xl p-6 sm:p-8 md:p-10">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+          <div>
+            <div className="text-3xl sm:text-4xl mb-4">💪</div>
+            <h4 className="text-lg sm:text-xl font-bold text-white mb-3">À nos joueurs :</h4>
+            <p className="text-gray-300 text-sm sm:text-base">
+              Vous n'êtes pas là par hasard. Vous avez travaillé pour ce moment. Sur le terrain, 
+              donnez tout : l'engagement, la discipline, la solidarité et le courage. 
+              Chaque duel doit être gagné, chaque ballon doit être disputé.
+            </p>
+          </div>
+          <div>
+            <div className="text-3xl sm:text-4xl mb-4">🔥</div>
+            <h4 className="text-lg sm:text-xl font-bold text-white mb-3">À nos supporters :</h4>
+            <p className="text-gray-300 text-sm sm:text-base">
+              Votre voix est notre force. Votre présence est notre énergie. 
+              Restez derrière l'équipe, dans les bons comme dans les moments difficiles. 
+              Ensemble, nous formerons un bloc solide et impossible à briser.
+            </p>
+          </div>
+        </div>
+        
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20 text-center">
+          <div className="text-xl sm:text-2xl font-bold text-tasko-yellow mb-2">
+            AS Tasko un jour, victoire pour toujours
+          </div>
+          <p className="text-gray-300">
+            Unis, déterminés et affamés de victoire, nous irons chercher nos objectifs.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Countdown */}
+    <div 
+      className="mt-12 sm:mt-16 text-center"
+      data-aos="fade-up"
+      data-aos-delay="500"
+    >
+      <div className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">
+        Le compte à rebours pour le premier match est lancé
+      </div>
+      <div className="flex justify-center flex-wrap gap-3 sm:gap-4 md:gap-8 px-4">
+        {[
+          { value: '6', label: 'Jours' },
+          { value: '14', label: 'Heures' },
+          { value: '32', label: 'Minutes' },
+          { value: '45', label: 'Secondes' }
+        ].map((item, index) => (
+          <div 
+            key={index}
+            className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl min-w-[60px] sm:min-w-[70px]"
+          >
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-tasko-yellow">{item.value}</div>
+            <div className="text-xs sm:text-sm text-gray-300 mt-1">{item.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Section Actualités récentes - Version Mobile Premium */}
       <section className="py-12 md:py-24 bg-white">

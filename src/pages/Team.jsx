@@ -39,7 +39,7 @@ const Team = () => {
     {
       name: "Coach Principal",
       role: "Entraîneur Chef",
-      image: "/images/taskopresi.jpg",
+      image: "/images/entraintasko.jpg",
       bio: "Architecte tactique, 10+ ans d'expérience en formation de jeunes",
       specialty: "Stratégie & Développement",
       quote: "Je ne forme pas des joueurs, je forge des champions."
@@ -47,7 +47,7 @@ const Team = () => {
     {
       name: "Assistant Technique",
       role: "Entraîneur Adjoint",
-      image: "/images/taskopresi2.jpg",
+      image: "/images/coachtijani.jpg",
       bio: "Spécialiste en préparation physique et analyse vidéo",
       specialty: "Performance & Conditionnement",
       quote: "La perfection n'existe pas, mais nous la poursuivons sans relâche."
