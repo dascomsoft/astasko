@@ -1,566 +1,3 @@
-// import { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom'
-// import AOS from 'aos'
-// import 'aos/dist/aos.css'
-// import PlayerCard from '../components/PlayerCard'
-// import { players } from '../data/players'
-
-// const Team = () => {
-//   const [activeFilter, setActiveFilter] = useState('Tous')
-//   const [hoveredPlayer, setHoveredPlayer] = useState(null)
-  
-//   useEffect(() => {
-//     AOS.init({
-//       duration: 800,
-//       once: true,
-//       disable: window.innerWidth < 768
-//     })
-    
-//     if (window.innerWidth < 768) {
-//       setTimeout(() => {
-//         AOS.init({
-//           duration: 600,
-//           once: true,
-//           offset: 30,
-//         })
-//       }, 300)
-//     }
-    
-//     window.scrollTo(0, 0)
-//   }, [])
-
-//   const positions = ['Tous', 'Gardien', 'Défenseur', 'Milieu', 'Attaquant']
-  
-//   const filteredPlayers = activeFilter === 'Tous' 
-//     ? players 
-//     : players.filter(player => player.position === activeFilter)
-
-//   const staff = [
-//     {
-//       name: "Coach Principal : Abdel Aziz Ali alias:SONG",
-//       role: "Entraîneur Chef",
-//       image: "/images/coachsong2.jpg",
-//       bio: "Architecte tactique, 10+ ans d'expérience en formation de jeunes",
-//       specialty: "Stratégie & Développement",
-//       quote: "Je ne forme pas des joueurs, je forge des champions."
-//     },
-//     {
-//       name: "Coach Adjoint : Tidjani Djamal Mahamat",
-//       role: "Entraîneur Adjoint",
-//       image: "/images/coachtijani.jpg",
-//       bio: "Spécialiste en préparation physique et analyse vidéo",
-//       specialty: "Performance & Conditionnement",
-//       quote: "La perfection n'existe pas, mais nous la poursuivons sans relâche."
-//     },
-//     {
-//       name: "Président Fondateur : TIMANE BARKA DJOROK",
-//       role: "Vision & Direction",
-//       image: "/images/taskopresi2.jpg",
-//       bio: "À l'origine du projet Tasko, stratège du développement club",
-//       specialty: "Leadership & Management",
-//       quote: "Nous ne construisons pas une équipe, nous créons une légende."
-//     }
-//   ]
-
-//   // Statistiques impactantes
-//   const teamStats = [
-//     { value: '21.5', label: 'Âge Moyen', sublabel: 'Jeunesse Prometteuse', icon: '👦', color: 'from-blue-500/20 to-cyan-500/20' },
-//     { value: '85%', label: 'Formation Maison', sublabel: 'Talents Locaux', icon: '🏠', color: 'from-green-500/20 to-emerald-500/20' },
-//     { value: 'D2', label: 'Compétition', sublabel: 'Championnat National', icon: '🏆', color: 'from-yellow-500/20 to-orange-500/20' },
-//     { value: '2026', label: 'Objectif', sublabel: 'Accession D1', icon: '🎯', color: 'from-purple-500/20 to-pink-500/20' }
-//   ]
-
-//   return (
-//     <div className="overflow-hidden">
-//       {/* Hero Section Impactante */}
-//       <div className="relative h-[50vh] sm:h-[50vh] pt-[18rem] pb-[18rem] md:h-[60vh] bg-gradient-to-br from-tasko-dark via-tasko-blue to-gray-900">
-//         <div 
-//           className="absolute inset-0 bg-cover bg-center opacity-10"
-//           style={{ backgroundImage: 'url(/images/tasko1.jpg)' }}
-//         ></div>
-//         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>
-        
-//         <div className="relative h-full flex items-center justify-center text-center text-white px-4">
-//           <div data-aos="fade-up" data-aos-delay="200">
-//             <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-4 py-2 rounded-full text-sm font-bold mb-6">
-//               ⚽ L'ARMÉE TASKO
-//             </span>
-//             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
-//               La Génération <span className="text-tasko-yellow">Tasko</span>
-//             </h1>
-//             <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light mb-8">
-//               Jeunes, affamés de succès et déterminés à écrire l'histoire
-//             </p>
-            
-//             {/* Stats rapides */}
-//             <div className="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="400">
-//               <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-//                 <div className="font-bold text-lg">{players.length}+</div>
-//                 <div className="text-sm">Guérriers du Terrain</div>
-//               </div>
-//               <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-//                 <div className="font-bold text-lg">100%</div>
-//                 <div className="text-sm">Passion Pure</div>
-//               </div>
-//               <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-//                 <div className="font-bold text-lg">D2</div>
-//                 <div className="text-sm">Notre Champ de Bataille</div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Section Staff Élite */}
-//       <section className="py-16 md:py-24 bg-white">
-//         <div className="container mx-auto px-4">
-//           <div className="max-w-6xl mx-auto">
-//             {/* En-tête impactant */}
-//             <div className="text-center mb-16" data-aos="fade-up">
-//               <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-4 py-2 rounded-full text-sm font-bold mb-4">
-//                 🧠 L'ÉTAT-MAJOR
-//               </span>
-//               <h2 className="text-3xl md:text-5xl font-bold text-tasko-dark mb-6">
-//                 Les <span className="text-tasko-blue">Cerveaux</span> de l'Opération
-//               </h2>
-//               <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-//                 Les stratèges qui transforment le potentiel en excellence
-//               </p>
-//             </div>
-
-//             {/* Grille du staff */}
-//             <div className="grid md:grid-cols-3 gap-8 mb-20">
-//               {staff.map((member, index) => (
-//                 <div 
-//                   key={index}
-//                   className="group relative"
-//                   data-aos="fade-up"
-//                   data-aos-delay={index * 200}
-//                 >
-//                   <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-tasko-blue/30">
-//                     {/* Photo */}
-//                     <div className="relative h-72 overflow-hidden">
-//                       <img
-//                         src={member.image}
-//                         alt={member.name}
-//                         className="w-full h-[25rem] object-cover group-hover:scale-110 transition-transform duration-700"
-//                       />
-//                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      
-//                       {/* Badge de rôle */}
-//                       <div className="absolute top-4 right-4">
-//                         <span className="bg-tasko-yellow text-tasko-dark px-3 py-1 rounded-full text-sm font-bold">
-//                           {member.role}
-//                         </span>
-//                       </div>
-//                     </div>
-                    
-//                     {/* Contenu */}
-//                     <div className="p-8">
-//                       <h3 className="text-2xl font-bold text-tasko-dark mb-2 group-hover:text-tasko-blue transition-colors">
-//                         {member.name}
-//                       </h3>
-                      
-//                       <div className="mb-4">
-//                         <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-3 py-1 rounded text-sm font-medium mb-3">
-//                           {member.specialty}
-//                         </span>
-//                       </div>
-                      
-//                       <p className="text-gray-600 mb-6">{member.bio}</p>
-                      
-//                       {/* Citation */}
-//                       <div className="border-l-3 border-tasko-yellow pl-4 py-2 bg-gradient-to-r from-tasko-yellow/5 to-transparent">
-//                         <p className="text-sm italic text-gray-700">
-//                           "{member.quote}"
-//                         </p>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Section Joueurs avec Filtres Premium */}
-//       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-//         <div className="container mx-auto px-4">
-//           <div className="max-w-6xl mx-auto">
-//             {/* En-tête impactant */}
-//             <div className="text-center mb-16" data-aos="fade-up">
-//               <span className="inline-block bg-tasko-yellow/10 text-tasko-dark px-4 py-2 rounded-full text-sm font-bold mb-4">
-//                 ⚔️ LES GUERRIERS
-//               </span>
-//               <h2 className="text-3xl md:text-5xl font-bold text-tasko-dark mb-6">
-//                 L'<span className="text-tasko-blue">Armada</span> Tasko
-//               </h2>
-//               <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-//                 Découvrez les talents qui portent fièrement nos couleurs
-//               </p>
-
-//               {/* Filtres stylisés */}
-//               <div className="flex flex-wrap justify-center gap-3 mb-12">
-//                 {positions.map((position, index) => (
-//                   <button
-//                     key={position}
-//                     onClick={() => setActiveFilter(position)}
-//                     className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
-//                       activeFilter === position
-//                         ? 'bg-gradient-to-r from-tasko-blue to-tasko-dark text-white shadow-lg'
-//                         : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg border border-gray-200'
-//                     }`}
-//                     data-aos="fade-up"
-//                     data-aos-delay={index * 100}
-//                   >
-//                     {position}
-//                     {position !== 'Tous' && (
-//                       <span className="ml-2 text-xs opacity-80">
-//                         ({players.filter(p => p.position === position).length})
-//                       </span>
-//                     )}
-//                   </button>
-//                 ))}
-//               </div>
-//             </div>
-
-//             {/* Grille des joueurs */}
-//             {filteredPlayers.length > 0 ? (
-//               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//                 {filteredPlayers.map((player, index) => (
-//                   <div 
-//                     key={player.id}
-//                     data-aos="fade-up"
-//                     data-aos-delay={index % 4 * 100}
-//                     onMouseEnter={() => setHoveredPlayer(player.id)}
-//                     onMouseLeave={() => setHoveredPlayer(null)}
-//                   >
-//                     <div className={`
-//                       transition-all duration-500 transform
-//                       ${hoveredPlayer === player.id ? 'scale-105 z-10' : ''}
-//                       ${hoveredPlayer && hoveredPlayer !== player.id ? 'opacity-80 scale-95' : ''}
-//                     `}>
-//                       <PlayerCard player={player} />
-//                     </div>
-//                   </div>
-//                 ))}
-//               </div>
-//             ) : (
-//               <div 
-//                 className="text-center py-16 bg-white rounded-3xl shadow-xl"
-//                 data-aos="fade-up"
-//               >
-//                 <div className="text-6xl mb-6">🔍</div>
-//                 <h3 className="text-2xl font-bold text-gray-700 mb-4">Aucun joueur dans cette catégorie</h3>
-//                 <p className="text-gray-600 mb-8 max-w-md mx-auto">
-//                   Tous nos talents sont polyvalents ! Essayez une autre catégorie ou découvrez notre effectif complet.
-//                 </p>
-//                 <button
-//                   onClick={() => setActiveFilter('Tous')}
-//                   className="bg-tasko-blue text-white px-8 py-3 rounded-xl font-bold hover:bg-tasko-dark transition transform hover:scale-105"
-//                 >
-//                   Voir Tous les Joueurs
-//                 </button>
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Section Statistiques Impactantes */}
-//       <section className="py-16 md:py-24 bg-gradient-to-r from-tasko-dark to-gray-900 text-white">
-//         <div className="container mx-auto px-4">
-//           <div className="max-w-6xl mx-auto">
-//             <div className="text-center mb-16" data-aos="fade-up">
-//               <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-4 py-2 rounded-full text-sm font-bold mb-4">
-//                 📊 LES CHIFFRES QUI PARLENT
-//               </span>
-//               <h2 className="text-3xl md:text-5xl font-bold mb-6">
-//                 L'ADN <span className="text-tasko-yellow">Tasko</span> en Chiffres
-//               </h2>
-//               <p className="text-tasko-light text-lg max-w-2xl mx-auto">
-//                 La preuve par les chiffres de notre singularité et de notre ambition
-//               </p>
-//             </div>
-
-//             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-//               {teamStats.map((stat, index) => (
-//                 <div 
-//                   key={index}
-//                   className={`bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 transform hover:scale-105 transition-all duration-300`}
-//                   data-aos="fade-up"
-//                   data-aos-delay={index * 100}
-//                 >
-//                   <div className="text-4xl mb-4">{stat.icon}</div>
-//                   <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
-//                   <div className="text-xl font-semibold mb-1">{stat.label}</div>
-//                   <div className="text-sm text-gray-300">{stat.sublabel}</div>
-//                 </div>
-//               ))}
-//             </div>
-
-//             {/* Stats détaillées */}
-//             <div className="mt-16" data-aos="fade-up">
-//               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-//                 <h3 className="text-2xl font-bold mb-8 text-center">Analyse de l'Effectif</h3>
-//                 <div className="grid md:grid-cols-3 gap-8">
-//                   <div className="text-center">
-//                     <div className="text-3xl font-bold text-tasko-yellow mb-2">Jeunesse</div>
-//                     <p className="text-gray-300">Moyenne d'âge la plus basse de la D2</p>
-//                   </div>
-//                   <div className="text-center">
-//                     <div className="text-3xl font-bold text-tasko-yellow mb-2">Formation</div>
-//                     <p className="text-gray-300">85% des joueurs formés au club</p>
-//                   </div>
-//                   <div className="text-center">
-//                     <div className="text-3xl font-bold text-tasko-yellow mb-2">Ambition</div>
-//                     <p className="text-gray-300">Objectif accession D1 en 2026</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Section Recrutement Premium */}
-//       <section className="py-16 md:py-24 bg-white">
-//         <div className="container mx-auto px-4">
-//           <div className="max-w-6xl mx-auto">
-//             <div className="grid lg:grid-cols-2 gap-10 items-center">
-//               {/* Colonne 1 - Essais */}
-//               <div data-aos="fade-right">
-//                 <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-100">
-//                   <div className="mb-8">
-//                     <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-4 py-2 rounded-full text-sm font-bold mb-4">
-//                       🎯 RECRUTEMENT D'ÉLITE
-//                     </span>
-//                     <h3 className="text-2xl md:text-3xl font-bold text-tasko-dark mb-6">
-//                       Le Talent, Nous le <span className="text-tasko-blue">Détectons</span>
-//                     </h3>
-//                     <p className="text-gray-700 text-lg mb-8">
-//                       L'AS Tasko recherche les perles rares : des jeunes déterminés, 
-//                       affamés de succès et prêts à tout donner pour le maillot.
-//                     </p>
-//                   </div>
-
-//                   <div className="space-y-6">
-//                     {[
-//                       "Âge : 16-25 ans (exceptionnel jusqu'à 28 ans)",
-//                       "Condition physique optimale",
-//                       "Attitude exemplaire et esprit d'équipe",
-//                       "Potentiel de progression exceptionnel",
-//                       "Passion dévorante pour le football"
-//                     ].map((item, index) => (
-//                       <div 
-//                         key={index}
-//                         className="flex items-start"
-//                         data-aos="fade-up"
-//                         data-aos-delay={index * 100}
-//                       >
-//                         <div className="w-8 h-8 rounded-full bg-tasko-yellow flex items-center justify-center mr-4 flex-shrink-0">
-//                           <span className="text-tasko-dark font-bold">✓</span>
-//                         </div>
-//                         <span className="text-gray-700">{item}</span>
-//                       </div>
-//                     ))}
-//                   </div>
-
-//                   <div className="mt-10 pt-8 border-t border-gray-200">
-//                     <Link
-//                       to="/contact"
-//                       className="inline-flex items-center bg-gradient-to-r from-tasko-blue to-tasko-dark text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-//                     >
-//                       <span className="mr-3">📝</span>
-//                       Postuler Maintenant
-//                       <span className="ml-3">→</span>
-//                     </Link>
-//                   </div>
-//                 </div>
-//               </div>
-
-//               {/* Colonne 2 - Horaires & Infos */}
-//               <div data-aos="fade-left">
-//                 <div className="bg-gradient-to-br from-tasko-dark to-gray-900 text-white rounded-3xl shadow-2xl overflow-hidden">
-//                   <div className="p-8 md:p-10">
-//                     <div className="mb-10">
-//                       <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-4 py-2 rounded-full text-sm font-bold mb-4">
-//                         🏟️ COME & WATCH
-//                       </span>
-//                       <h3 className="text-2xl md:text-3xl font-bold mb-6">
-//                         Nos Entraînements <span className="text-tasko-yellow">Ouverts</span>
-//                       </h3>
-//                       <p className="text-tasko-light">
-//                         Venez assister aux séances qui forgent les champions de demain
-//                       </p>
-//                     </div>
-
-//                     {/* Horaires */}
-//                     <div className="mb-10">
-//                       <h4 className="text-xl font-bold mb-6 flex items-center">
-//                         <span className="mr-3">⏰</span>
-//                         Horaires des Séances
-//                       </h4>
-//                       <div className="space-y-4">
-//                         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-//                           <div className="flex justify-between items-center">
-//                             <div>
-//                               <div className="font-bold text-lg">Lundi - Vendredi</div>
-//                               <div className="text-tasko-light text-sm">Séances intensives</div>
-//                             </div>
-//                             <div className="text-2xl font-bold text-tasko-yellow">16h-18h</div>
-//                           </div>
-//                         </div>
-//                         <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-//                           <div className="flex justify-between items-center">
-//                             <div>
-//                               <div className="font-bold text-lg">Samedi</div>
-//                               <div className="text-tasko-light text-sm">Matchs amicaux</div>
-//                             </div>
-//                             <div className="text-2xl font-bold text-tasko-yellow">10h-12h</div>
-//                           </div>
-//                         </div>
-//                       </div>
-//                     </div>
-
-//                     {/* Localisation */}
-//                     <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
-//                       <h4 className="text-xl font-bold mb-4 flex items-center">
-//                         <span className="mr-3">📍</span>
-//                         Où Nous Trouver
-//                       </h4>
-//                       <div className="space-y-3">
-//                         <div>
-//                           <div className="font-semibold">Stade de Diguel</div>
-//                           <div className="text-tasko-light text-sm">Quartier Diguel, N'Djamena</div>
-//                         </div>
-//                         <div className="flex items-center text-sm text-tasko-light">
-//                           <span className="mr-2">🚗</span>
-//                           Parking disponible • Accessible en taxi
-//                         </div>
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Call to Action Final */}
-//             <div className="mt-20 text-center" data-aos="fade-up">
-//               <div className="bg-gradient-to-r from-tasko-blue/10 to-tasko-dark/10 rounded-3xl p-10 border border-gray-200">
-//                 <h3 className="text-2xl md:text-3xl font-bold text-tasko-dark mb-6">
-//                   Prêt à Porter le Maillot <span className="text-tasko-blue">Tasko</span> ?
-//                 </h3>
-//                 <p className="text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
-//                   Rejoignez la famille Tasko et écrivez votre propre histoire de succès
-//                 </p>
-//                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-//                   <Link
-//                     to="/contact"
-//                     className="bg-tasko-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-tasko-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
-//                   >
-//                     🎯 Postuler comme Joueur
-//                   </Link>
-//                   <Link
-//                     to="/gallery"
-//                     className="bg-white text-tasko-dark px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 border-2 border-gray-300 hover:border-tasko-blue"
-//                   >
-//                     📸 Voir Nos Entraînements
-//                   </Link>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   )
-// }
-
-// export default Team
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AOS from 'aos'
@@ -720,6 +157,13 @@ const Team = () => {
     document.body.style.overflow = 'auto' // Réactive le scroll
   }
 
+  // Gérer le clic en dehors du modal
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal()
+    }
+  }
+
   // Statistiques impactantes
   const teamStats = [
     { value: '21.5', label: 'Âge Moyen', sublabel: 'Jeunesse Prometteuse', icon: '👦', color: 'from-blue-500/20 to-cyan-500/20' },
@@ -730,104 +174,108 @@ const Team = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Modal pour le staff */}
+      {/* Modal pour le staff - Version Mobile Premium */}
       {modalOpen && selectedStaff && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-sm"
+          onClick={handleBackdropClick}
+        >
           <div 
-            className="relative bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            className="relative bg-white rounded-xl sm:rounded-2xl md:rounded-3xl w-full max-w-full sm:max-w-2xl md:max-w-4xl max-h-[90vh] sm:max-h-[85vh] overflow-y-auto"
             data-aos="zoom-in"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Bouton fermer */}
+            {/* Bouton fermer mobile-friendly */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-300"
+              className="sticky top-2 right-2 sm:absolute sm:top-4 sm:right-4 z-10 w-10 h-10 rounded-full bg-white/90 hover:bg-gray-100 shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 transition-all duration-300 ml-auto mr-2 mt-2 sm:mr-0 sm:mt-0"
             >
               <span className="text-2xl">×</span>
             </button>
 
-            {/* Header du modal avec image */}
-            <div className="relative h-64 md:h-80 overflow-hidden rounded-t-3xl">
+            {/* Header du modal avec image - Mobile optimisé */}
+            <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-xl sm:rounded-t-2xl md:rounded-t-3xl">
               <img
                 src={selectedStaff.image}
                 alt={selectedStaff.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="inline-block bg-tasko-yellow text-tasko-dark px-4 py-2 rounded-full text-sm font-bold mb-3">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                <span className="inline-block bg-tasko-yellow text-tasko-dark px-3 py-1 rounded-full text-xs sm:text-sm font-bold mb-2">
                   {selectedStaff.role}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1">
                   {selectedStaff.modalContent.title}
                 </h2>
-                <p className="text-gray-200 text-lg">
+                <p className="text-gray-200 text-sm sm:text-base md:text-lg">
                   {selectedStaff.modalContent.subtitle}
                 </p>
               </div>
             </div>
 
-            {/* Contenu du modal */}
-            <div className="p-6 md:p-10">
-              {/* Stats rapides */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
+            {/* Contenu du modal - Mobile optimisé */}
+            <div className="p-4 sm:p-6 md:p-8">
+              {/* Stats rapides - Mobile adapté */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-6">
                 {selectedStaff.modalContent.stats.map((stat, index) => (
                   <div 
                     key={index}
-                    className="bg-gray-50 rounded-xl p-4 text-center"
+                    className="bg-gray-50 rounded-lg sm:rounded-xl p-3 sm:p-4 text-center"
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                   >
-                    <div className="text-tasko-dark font-bold text-lg mb-1">{stat.value}</div>
-                    <div className="text-gray-600 text-sm">{stat.label}</div>
+                    <div className="text-tasko-dark font-bold text-base sm:text-lg md:text-xl mb-1">{stat.value}</div>
+                    <div className="text-gray-600 text-xs sm:text-sm">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              {/* Sections de contenu */}
-              <div className="space-y-8">
+              {/* Sections de contenu - Mobile optimisé */}
+              <div className="space-y-4 sm:space-y-6 md:space-y-8">
                 {selectedStaff.modalContent.sections.map((section, index) => (
                   <div 
                     key={index}
                     data-aos="fade-up"
                     data-aos-delay={(index + 1) * 100}
                   >
-                    <h3 className="text-xl font-bold text-tasko-dark mb-4 border-l-4 border-tasko-yellow pl-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-tasko-dark mb-2 sm:mb-3 md:mb-4 border-l-3 sm:border-l-4 border-tasko-yellow pl-3 sm:pl-4">
                       {section.title}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                       {section.content}
                     </p>
                   </div>
                 ))}
               </div>
 
-              {/* Citation finale */}
+              {/* Citation finale - Mobile adapté */}
               <div 
-                className="mt-10 pt-8 border-t border-gray-200"
+                className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 md:pt-8 border-t border-gray-200"
                 data-aos="fade-up"
               >
-                <div className="bg-gradient-to-r from-tasko-yellow/10 to-tasko-blue/10 rounded-2xl p-6">
-                  <div className="text-4xl text-tasko-yellow mb-4">"</div>
-                  <p className="text-xl italic text-gray-800 mb-4">
+                <div className="bg-gradient-to-r from-tasko-yellow/10 to-tasko-blue/10 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                  <div className="text-3xl sm:text-4xl text-tasko-yellow mb-2 sm:mb-3 md:mb-4">"</div>
+                  <p className="text-base sm:text-lg md:text-xl italic text-gray-800 mb-3 sm:mb-4">
                     {selectedStaff.quote}
                   </p>
                   <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-tasko-yellow flex items-center justify-center mr-4">
-                      <span className="text-tasko-dark font-bold text-lg">AS</span>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-tasko-yellow flex items-center justify-center mr-3 sm:mr-4">
+                      <span className="text-tasko-dark font-bold text-sm sm:text-base md:text-lg">AS</span>
                     </div>
                     <div>
-                      <div className="font-bold text-tasko-dark">AS TASKO</div>
-                      <div className="text-sm text-gray-600">Un jour, victoire pour toujours.</div>
+                      <div className="font-bold text-tasko-dark text-sm sm:text-base md:text-lg">AS TASKO</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Un jour, victoire pour toujours.</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Bouton fermer */}
-              <div className="mt-10 text-center">
+              {/* Bouton fermer mobile-friendly */}
+              <div className="mt-6 sm:mt-8 text-center">
                 <button
                   onClick={closeModal}
-                  className="bg-tasko-dark text-white px-8 py-3 rounded-xl font-bold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105"
+                  className="bg-tasko-dark text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
                 >
                   Fermer le Portrait
                 </button>
@@ -837,64 +285,64 @@ const Team = () => {
         </div>
       )}
 
-      {/* Hero Section Impactante */}
-      <div className="relative h-[50vh] sm:h-[50vh] pt-[18rem] pb-[18rem] md:h-[60vh] bg-gradient-to-br from-tasko-dark via-tasko-blue to-gray-900">
+      {/* Hero Section Impactante - Mobile Premium */}
+      <div className="relative min-h-[50vh] sm:h-[50vh] md:h-[60vh] bg-gradient-to-br from-tasko-dark via-tasko-blue to-gray-900 pt-16 sm:pt-0">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: 'url(/images/tasko1.jpg)' }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent"></div>
         
-        <div className="relative h-full flex items-center justify-center text-center text-white px-4">
+        <div className="relative h-full flex items-center justify-center text-center text-white px-4 py-12 sm:py-0">
           <div data-aos="fade-up" data-aos-delay="200">
-            <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-4 py-2 rounded-full text-sm font-bold mb-6">
+            <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-4 sm:mb-6">
               ⚽ L'ARMÉE TASKO
             </span>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-3 sm:mb-4 leading-tight">
               La Génération <span className="text-tasko-yellow">Tasko</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light mb-8">
+            <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-light mb-6 sm:mb-8 px-2">
               Jeunes, affamés de succès et déterminés à écrire l'histoire
             </p>
             
-            {/* Stats rapides */}
-            <div className="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="400">
-              <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-                <div className="font-bold text-lg">{players.length}+</div>
-                <div className="text-sm">Guérriers du Terrain</div>
+            {/* Stats rapides - Mobile adapté */}
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3" data-aos="fade-up" data-aos-delay="400">
+              <div className="bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl">
+                <div className="font-bold text-base sm:text-lg">{players.length}+</div>
+                <div className="text-xs sm:text-sm">Guérriers du Terrain</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-                <div className="font-bold text-lg">100%</div>
-                <div className="text-sm">Passion Pure</div>
+              <div className="bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl">
+                <div className="font-bold text-base sm:text-lg">100%</div>
+                <div className="text-xs sm:text-sm">Passion Pure</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm px-4 py-3 rounded-xl">
-                <div className="font-bold text-lg">D2</div>
-                <div className="text-sm">Notre Champ de Bataille</div>
+              <div className="bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl">
+                <div className="font-bold text-base sm:text-lg">D2</div>
+                <div className="text-xs sm:text-sm">Notre Champ de Bataille</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Section Staff Élite */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Section Staff Élite - Mobile Premium */}
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             {/* En-tête impactant */}
-            <div className="text-center mb-16" data-aos="fade-up">
-              <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16" data-aos="fade-up">
+              <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                 🧠 L'ÉTAT-MAJOR
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-tasko-dark mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-tasko-dark mb-4 sm:mb-6">
                 Les <span className="text-tasko-blue">Cerveaux</span> de l'Opération
               </h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
                 Les stratèges qui transforment le potentiel en excellence
               </p>
             </div>
 
-            {/* Grille du staff */}
-            <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {/* Grille du staff - Mobile adapté */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 md:mb-20">
               {staff.map((member, index) => (
                 <div 
                   key={index}
@@ -903,59 +351,60 @@ const Team = () => {
                   data-aos-delay={index * 200}
                 >
                   <div 
-                    className="bg-gradient-to-br from-white to-gray-50 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-tasko-blue/30 cursor-pointer"
+                    className="bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-tasko-blue/30 cursor-pointer active:scale-95"
                     onClick={() => openModal(member)}
                   >
                     {/* Photo */}
-                    <div className="relative h-72 overflow-hidden">
+                    <div className="relative h-48 sm:h-56 md:h-72 overflow-hidden">
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-[25rem] object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                       
                       {/* Badge de rôle */}
-                      <div className="absolute top-4 right-4">
-                        <span className="bg-tasko-yellow text-tasko-dark px-3 py-1 rounded-full text-sm font-bold">
+                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+                        <span className="bg-tasko-yellow text-tasko-dark px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold">
                           {member.role}
                         </span>
                       </div>
                       
-                      {/* Overlay au hover */}
-                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <span className="text-white text-lg font-bold flex items-center">
-                          <span className="mr-2">👁️</span>
-                          Voir le Portrait Complet
+                      {/* Overlay au hover - Mobile touch friendly */}
+                      <div className="absolute inset-0 bg-black/30 sm:bg-black/40 opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span className="text-white text-sm sm:text-base font-bold flex items-center px-4 text-center">
+                          <span className="mr-2 hidden sm:inline">👁️</span>
+                          Voir le Portrait
                         </span>
                       </div>
                     </div>
                     
                     {/* Contenu */}
-                    <div className="p-8">
-                      <h3 className="text-2xl font-bold text-tasko-dark mb-2 group-hover:text-tasko-blue transition-colors">
+                    <div className="p-4 sm:p-6 md:p-8">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-tasko-dark mb-2 group-hover:text-tasko-blue transition-colors">
                         {member.name}
                       </h3>
                       
-                      <div className="mb-4">
-                        <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-3 py-1 rounded text-sm font-medium mb-3">
+                      <div className="mb-3 sm:mb-4">
+                        <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-2 sm:px-3 py-1 rounded text-xs sm:text-sm font-medium mb-2">
                           {member.specialty}
                         </span>
                       </div>
                       
-                      <p className="text-gray-600 mb-6">{member.bio}</p>
+                      <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">{member.bio}</p>
                       
                       {/* Citation */}
-                      <div className="border-l-3 border-tasko-yellow pl-4 py-2 bg-gradient-to-r from-tasko-yellow/5 to-transparent">
-                        <p className="text-sm italic text-gray-700">
+                      <div className="border-l-2 sm:border-l-3 border-tasko-yellow pl-3 sm:pl-4 py-1 sm:py-2 bg-gradient-to-r from-tasko-yellow/5 to-transparent">
+                        <p className="text-xs sm:text-sm italic text-gray-700">
                           "{member.quote}"
                         </p>
                       </div>
                       
-                      {/* Indicateur de clic */}
-                      <div className="mt-6 flex items-center text-tasko-blue text-sm">
-                        <span className="mr-2">📖</span>
-                        Cliquez pour découvrir le portrait complet
+                      {/* Indicateur de clic - Mobile friendly */}
+                      <div className="mt-4 flex items-center text-tasko-blue text-xs sm:text-sm">
+                        <span className="mr-1.5 sm:mr-2">📖</span>
+                        <span className="hidden sm:inline">Cliquez pour découvrir le portrait complet</span>
+                        <span className="sm:hidden">Appuyez pour découvrir</span>
                       </div>
                     </div>
                   </div>
@@ -966,30 +415,29 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Le reste du code reste inchangé... */}
-      {/* Section Joueurs avec Filtres Premium */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
+      {/* Section Joueurs avec Filtres Premium - Mobile adapté */}
+      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
             {/* En-tête impactant */}
-            <div className="text-center mb-16" data-aos="fade-up">
-              <span className="inline-block bg-tasko-yellow/10 text-tasko-dark px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16" data-aos="fade-up">
+              <span className="inline-block bg-tasko-yellow/10 text-tasko-dark px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                 ⚔️ LES GUERRIERS
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-tasko-dark mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-tasko-dark mb-4 sm:mb-6">
                 L'<span className="text-tasko-blue">Armada</span> Tasko
               </h2>
-              <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
+              <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
                 Découvrez les talents qui portent fièrement nos couleurs
               </p>
 
-              {/* Filtres stylisés */}
-              <div className="flex flex-wrap justify-center gap-3 mb-12">
+              {/* Filtres stylisés - Mobile scroll horizontal */}
+              <div className="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 overflow-x-auto pb-4 sm:pb-0 scrollbar-hide">
                 {positions.map((position, index) => (
                   <button
                     key={position}
                     onClick={() => setActiveFilter(position)}
-                    className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
+                    className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold transition-all duration-300 transform hover:scale-105 active:scale-95 flex-shrink-0 ${
                       activeFilter === position
                         ? 'bg-gradient-to-r from-tasko-blue to-tasko-dark text-white shadow-lg'
                         : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg border border-gray-200'
@@ -997,12 +445,14 @@ const Team = () => {
                     data-aos="fade-up"
                     data-aos-delay={index * 100}
                   >
-                    {position}
-                    {position !== 'Tous' && (
-                      <span className="ml-2 text-xs opacity-80">
-                        ({players.filter(p => p.position === position).length})
-                      </span>
-                    )}
+                    <span className="text-xs sm:text-sm">
+                      {position}
+                      {position !== 'Tous' && (
+                        <span className="ml-1 sm:ml-2 text-xs opacity-80">
+                          ({players.filter(p => p.position === position).length})
+                        </span>
+                      )}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -1010,7 +460,7 @@ const Team = () => {
 
             {/* Grille des joueurs */}
             {filteredPlayers.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {filteredPlayers.map((player, index) => (
                   <div 
                     key={player.id}
@@ -1018,9 +468,10 @@ const Team = () => {
                     data-aos-delay={index % 4 * 100}
                     onMouseEnter={() => setHoveredPlayer(player.id)}
                     onMouseLeave={() => setHoveredPlayer(null)}
+                    className="transform transition-transform duration-300 active:scale-95"
                   >
                     <div className={`
-                      transition-all duration-500 transform
+                      transition-all duration-500
                       ${hoveredPlayer === player.id ? 'scale-105 z-10' : ''}
                       ${hoveredPlayer && hoveredPlayer !== player.id ? 'opacity-80 scale-95' : ''}
                     `}>
@@ -1031,17 +482,17 @@ const Team = () => {
               </div>
             ) : (
               <div 
-                className="text-center py-16 bg-white rounded-3xl shadow-xl"
+                className="text-center py-8 sm:py-12 md:py-16 bg-white rounded-xl sm:rounded-2xl md:rounded-3xl shadow-lg sm:shadow-xl"
                 data-aos="fade-up"
               >
-                <div className="text-6xl mb-6">🔍</div>
-                <h3 className="text-2xl font-bold text-gray-700 mb-4">Aucun joueur dans cette catégorie</h3>
-                <p className="text-gray-600 mb-8 max-w-md mx-auto">
+                <div className="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-6">🔍</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-3 sm:mb-4">Aucun joueur dans cette catégorie</h3>
+                <p className="text-gray-600 mb-6 sm:mb-8 max-w-md mx-auto px-4 text-sm sm:text-base">
                   Tous nos talents sont polyvalents ! Essayez une autre catégorie ou découvrez notre effectif complet.
                 </p>
                 <button
                   onClick={() => setActiveFilter('Tous')}
-                  className="bg-tasko-blue text-white px-8 py-3 rounded-xl font-bold hover:bg-tasko-dark transition transform hover:scale-105"
+                  className="bg-tasko-blue text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:bg-tasko-dark transition transform hover:scale-105 active:scale-95 text-sm sm:text-base"
                 >
                   Voir Tous les Joueurs
                 </button>
@@ -1051,54 +502,54 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Section Statistiques Impactantes */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-tasko-dark to-gray-900 text-white">
-        <div className="container mx-auto px-4">
+      {/* Section Statistiques Impactantes - Mobile adapté */}
+      <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-r from-tasko-dark to-gray-900 text-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16" data-aos="fade-up">
-              <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-4 py-2 rounded-full text-sm font-bold mb-4">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16" data-aos="fade-up">
+              <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                 📊 LES CHIFFRES QUI PARLENT
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">
                 L'ADN <span className="text-tasko-yellow">Tasko</span> en Chiffres
               </h2>
-              <p className="text-tasko-light text-lg max-w-2xl mx-auto">
+              <p className="text-tasko-light text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
                 La preuve par les chiffres de notre singularité et de notre ambition
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {teamStats.map((stat, index) => (
                 <div 
                   key={index}
-                  className={`bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 transform hover:scale-105 transition-all duration-300`}
+                  className={`bg-gradient-to-br ${stat.color} backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 text-center border border-white/10 transform hover:scale-105 transition-all duration-300 active:scale-95`}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                 >
-                  <div className="text-4xl mb-4">{stat.icon}</div>
-                  <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
-                  <div className="text-xl font-semibold mb-1">{stat.label}</div>
-                  <div className="text-sm text-gray-300">{stat.sublabel}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 md:mb-4">{stat.icon}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">{stat.value}</div>
+                  <div className="text-base sm:text-lg md:text-xl font-semibold mb-1">{stat.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-300">{stat.sublabel}</div>
                 </div>
               ))}
             </div>
 
             {/* Stats détaillées */}
-            <div className="mt-16" data-aos="fade-up">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-8 text-center">Analyse de l'Effectif</h3>
-                <div className="grid md:grid-cols-3 gap-8">
+            <div className="mt-8 sm:mt-12 md:mt-16" data-aos="fade-up">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 md:mb-8 text-center">Analyse de l'Effectif</h3>
+                <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-tasko-yellow mb-2">Jeunesse</div>
-                    <p className="text-gray-300">Moyenne d'âge la plus basse de la D2</p>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-yellow mb-1 sm:mb-2">Jeunesse</div>
+                    <p className="text-gray-300 text-sm sm:text-base">Moyenne d'âge la plus basse de la D2</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-tasko-yellow mb-2">Formation</div>
-                    <p className="text-gray-300">85% des joueurs formés au club</p>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-yellow mb-1 sm:mb-2">Formation</div>
+                    <p className="text-gray-300 text-sm sm:text-base">85% des joueurs formés au club</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-tasko-yellow mb-2">Ambition</div>
-                    <p className="text-gray-300">Objectif accession D1 en 2026</p>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-yellow mb-1 sm:mb-2">Ambition</div>
+                    <p className="text-gray-300 text-sm sm:text-base">Objectif accession D1 en 2026</p>
                   </div>
                 </div>
               </div>
@@ -1107,28 +558,28 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Section Recrutement Premium */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
+      {/* Section Recrutement Premium - Mobile adapté */}
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
               {/* Colonne 1 - Essais */}
-              <div data-aos="fade-right">
-                <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-100">
-                  <div className="mb-8">
-                    <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-4 py-2 rounded-full text-sm font-bold mb-4">
+              <div data-aos="fade-up">
+                <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl md:rounded-3xl shadow-lg sm:shadow-xl md:shadow-2xl p-4 sm:p-6 md:p-8 lg:p-10 border border-gray-100">
+                  <div className="mb-6 sm:mb-8">
+                    <span className="inline-block bg-tasko-blue/10 text-tasko-blue px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                       🎯 RECRUTEMENT D'ÉLITE
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-tasko-dark mb-6">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-dark mb-4 sm:mb-6">
                       Le Talent, Nous le <span className="text-tasko-blue">Détectons</span>
                     </h3>
-                    <p className="text-gray-700 text-lg mb-8">
+                    <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 sm:mb-8">
                       L'AS Tasko recherche les perles rares : des jeunes déterminés, 
                       affamés de succès et prêts à tout donner pour le maillot.
                     </p>
                   </div>
 
-                  <div className="space-y-6">
+                  <div className="space-y-3 sm:space-y-4 md:space-y-6">
                     {[
                       "Âge : 16-25 ans (exceptionnel jusqu'à 28 ans)",
                       "Condition physique optimale",
@@ -1142,84 +593,84 @@ const Team = () => {
                         data-aos="fade-up"
                         data-aos-delay={index * 100}
                       >
-                        <div className="w-8 h-8 rounded-full bg-tasko-yellow flex items-center justify-center mr-4 flex-shrink-0">
-                          <span className="text-tasko-dark font-bold">✓</span>
+                        <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-tasko-yellow flex items-center justify-center mr-3 flex-shrink-0">
+                          <span className="text-tasko-dark font-bold text-xs sm:text-sm">✓</span>
                         </div>
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-gray-700 text-sm sm:text-base">{item}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-10 pt-8 border-t border-gray-200">
+                  <div className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 md:pt-8 border-t border-gray-200">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center bg-gradient-to-r from-tasko-blue to-tasko-dark text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      className="inline-flex items-center bg-gradient-to-r from-tasko-blue to-tasko-dark text-white px-6 sm:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-bold hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg text-sm sm:text-base"
                     >
-                      <span className="mr-3">📝</span>
+                      <span className="mr-2 sm:mr-3">📝</span>
                       Postuler Maintenant
-                      <span className="ml-3">→</span>
+                      <span className="ml-2 sm:ml-3">→</span>
                     </Link>
                   </div>
                 </div>
               </div>
 
               {/* Colonne 2 - Horaires & Infos */}
-              <div data-aos="fade-left">
-                <div className="bg-gradient-to-br from-tasko-dark to-gray-900 text-white rounded-3xl shadow-2xl overflow-hidden">
-                  <div className="p-8 md:p-10">
-                    <div className="mb-10">
-                      <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-4 py-2 rounded-full text-sm font-bold mb-4">
+              <div data-aos="fade-up" data-aos-delay="200">
+                <div className="bg-gradient-to-br from-tasko-dark to-gray-900 text-white rounded-xl sm:rounded-2xl md:rounded-3xl shadow-lg sm:shadow-xl md:shadow-2xl overflow-hidden">
+                  <div className="p-4 sm:p-6 md:p-8 lg:p-10">
+                    <div className="mb-6 sm:mb-8 md:mb-10">
+                      <span className="inline-block bg-tasko-yellow/30 text-tasko-yellow px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                         🏟️ COME & WATCH
                       </span>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-6">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6">
                         Nos Entraînements <span className="text-tasko-yellow">Ouverts</span>
                       </h3>
-                      <p className="text-tasko-light">
+                      <p className="text-tasko-light text-sm sm:text-base">
                         Venez assister aux séances qui forgent les champions de demain
                       </p>
                     </div>
 
                     {/* Horaires */}
-                    <div className="mb-10">
-                      <h4 className="text-xl font-bold mb-6 flex items-center">
-                        <span className="mr-3">⏰</span>
+                    <div className="mb-6 sm:mb-8 md:mb-10">
+                      <h4 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center">
+                        <span className="mr-2 sm:mr-3">⏰</span>
                         Horaires des Séances
                       </h4>
-                      <div className="space-y-4">
-                        <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl">
                           <div className="flex justify-between items-center">
                             <div>
-                              <div className="font-bold text-lg">Lundi - Vendredi</div>
-                              <div className="text-tasko-light text-sm">Séances intensives</div>
+                              <div className="font-bold text-base sm:text-lg">Lundi - Vendredi</div>
+                              <div className="text-tasko-light text-xs sm:text-sm">Séances intensives</div>
                             </div>
-                            <div className="text-2xl font-bold text-tasko-yellow">16h-18h</div>
+                            <div className="text-xl sm:text-2xl font-bold text-tasko-yellow">16h-18h</div>
                           </div>
                         </div>
-                        <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl">
                           <div className="flex justify-between items-center">
                             <div>
-                              <div className="font-bold text-lg">Samedi</div>
-                              <div className="text-tasko-light text-sm">Matchs amicaux</div>
+                              <div className="font-bold text-base sm:text-lg">Samedi</div>
+                              <div className="text-tasko-light text-xs sm:text-sm">Matchs amicaux</div>
                             </div>
-                            <div className="text-2xl font-bold text-tasko-yellow">10h-12h</div>
+                            <div className="text-xl sm:text-2xl font-bold text-tasko-yellow">10h-12h</div>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Localisation */}
-                    <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                      <h4 className="text-xl font-bold mb-4 flex items-center">
-                        <span className="mr-3">📍</span>
+                    <div className="bg-white/5 backdrop-blur-sm p-4 sm:p-6 rounded-lg sm:rounded-xl border border-white/10">
+                      <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center">
+                        <span className="mr-2 sm:mr-3">📍</span>
                         Où Nous Trouver
                       </h4>
-                      <div className="space-y-3">
+                      <div className="space-y-2 sm:space-y-3">
                         <div>
-                          <div className="font-semibold">Stade de Diguel</div>
-                          <div className="text-tasko-light text-sm">Quartier Diguel, N'Djamena</div>
+                          <div className="font-semibold text-base sm:text-lg">Stade de Diguel</div>
+                          <div className="text-tasko-light text-xs sm:text-sm">Quartier Diguel, N'Djamena</div>
                         </div>
-                        <div className="flex items-center text-sm text-tasko-light">
-                          <span className="mr-2">🚗</span>
+                        <div className="flex items-center text-xs sm:text-sm text-tasko-light">
+                          <span className="mr-1.5 sm:mr-2">🚗</span>
                           Parking disponible • Accessible en taxi
                         </div>
                       </div>
@@ -1230,24 +681,24 @@ const Team = () => {
             </div>
 
             {/* Call to Action Final */}
-            <div className="mt-20 text-center" data-aos="fade-up">
-              <div className="bg-gradient-to-r from-tasko-blue/10 to-tasko-dark/10 rounded-3xl p-10 border border-gray-200">
-                <h3 className="text-2xl md:text-3xl font-bold text-tasko-dark mb-6">
+            <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 text-center" data-aos="fade-up">
+              <div className="bg-gradient-to-r from-tasko-blue/10 to-tasko-dark/10 rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-tasko-dark mb-4 sm:mb-6">
                   Prêt à Porter le Maillot <span className="text-tasko-blue">Tasko</span> ?
                 </h3>
-                <p className="text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
+                <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
                   Rejoignez la famille Tasko et écrivez votre propre histoire de succès
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Link
                     to="/contact"
-                    className="bg-tasko-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-tasko-dark transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="bg-tasko-blue text-white px-6 sm:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-tasko-dark transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg text-sm sm:text-base"
                   >
                     🎯 Postuler comme Joueur
                   </Link>
                   <Link
                     to="/gallery"
-                    className="bg-white text-tasko-dark px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 border-2 border-gray-300 hover:border-tasko-blue"
+                    className="bg-white text-tasko-dark px-6 sm:px-8 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 border-2 border-gray-300 hover:border-tasko-blue active:scale-95 text-sm sm:text-base"
                   >
                     📸 Voir Nos Entraînements
                   </Link>
