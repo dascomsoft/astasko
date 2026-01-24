@@ -210,6 +210,224 @@ const News = () => {
         </section>
       )}
 
+
+
+    {/* Section Victoires Récentes - Carrousel Premium */}
+<section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-tasko-blue/5 to-white">
+  <div className="container mx-auto px-4 sm:px-6">
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-8 sm:mb-12" data-aos="fade-up">
+        <span className="inline-block bg-green-500/20 text-green-700 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
+          🏆 VICTOIRES EN SÉRIE
+        </span>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-tasko-dark mb-4 sm:mb-6">
+          Le <span className="text-green-600">Début Parfait</span> de l'AS Tasko
+        </h2>
+        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto px-4">
+          2 matchs, 2 victoires, 6 buts marqués, leader de la D2
+        </p>
+      </div>
+
+      {/* Carrousel des victoires */}
+      <div className="relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Victoire 4-0 */}
+          <div 
+            className="group bg-white rounded-xl sm:rounded-2xl md:rounded-3xl shadow-lg sm:shadow-xl hover:shadow-xl sm:hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 border-green-500/20 hover:border-green-500/50"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+              <img
+                src="/images/tasko25.jpg"
+                alt="Victoire 4-0 contre Agri-Tchad"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              
+              {/* Badge victoire écrasante */}
+              <div className="absolute top-4 left-4">
+                <span className="bg-green-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-sm sm:text-base font-bold shadow-lg">
+                  ⚽ 4-0 • ÉCRASANT
+                </span>
+              </div>
+              
+              {/* Score */}
+              <div className="absolute bottom-4 right-4 bg-black/80 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl text-lg sm:text-xl md:text-2xl font-bold">
+                4 - 0
+              </div>
+            </div>
+            
+            <div className="p-4 sm:p-6 md:p-8">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <span className="bg-blue-100 text-blue-800 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                  Journée 1 • 18 Jan 2026
+                </span>
+                <span className="text-green-600 font-bold flex items-center">
+                  <span className="mr-2">✅</span>
+                  VICTOIRE
+                </span>
+              </div>
+              
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-tasko-dark mb-3 sm:mb-4 group-hover:text-green-600 transition-colors">
+                Agri-Tchad pulvérisé 4-0 !
+              </h3>
+              
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
+                Le festival offensif de l'AS Tasko ! Doublés de Youssouf et Seid. Une démonstration de force pour l'ouverture du championnat.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Buts</div>
+                  <div className="font-bold text-lg sm:text-xl">4</div>
+                </div>
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Tirs cadrés</div>
+                  <div className="font-bold text-lg sm:text-xl">10</div>
+                </div>
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Possession</div>
+                  <div className="font-bold text-lg sm:text-xl">68%</div>
+                </div>
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Spectateurs</div>
+                  <div className="font-bold text-lg sm:text-xl">850</div>
+                </div>
+              </div>
+              
+              <Link to="/news/7" className="block">
+                <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-gray-100">
+                  <span className="text-green-600 font-semibold text-sm sm:text-base group-hover:text-green-800 transition-colors">
+                    Revivre le match minute par minute →
+                  </span>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-all">
+                    <span className="text-sm sm:text-base">⚽</span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Victoire 2-1 */}
+          <div 
+            className="group bg-white rounded-xl sm:rounded-2xl md:rounded-3xl shadow-lg sm:shadow-xl hover:shadow-xl sm:hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 border-blue-500/20 hover:border-blue-500/50"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+              <img
+                src="/images/tasko28.jpg"
+                alt="Victoire 2-1 contre AS Douanes"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              
+              <div className="absolute top-4 left-4">
+                <span className="bg-blue-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-sm sm:text-base font-bold shadow-lg">
+                  ⚽ 2-1 • COMBATIF
+                </span>
+              </div>
+              
+              <div className="absolute bottom-4 right-4 bg-black/80 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl text-lg sm:text-xl md:text-2xl font-bold">
+                2 - 1
+              </div>
+            </div>
+            
+            <div className="p-4 sm:p-6 md:p-8">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <span className="bg-blue-100 text-blue-800 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
+                  Journée 2 • 23 Jan 2026
+                </span>
+                <span className="text-green-600 font-bold flex items-center">
+                  <span className="mr-2">✅</span>
+                  VICTOIRE
+                </span>
+              </div>
+              
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-tasko-dark mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors">
+                Les Douanes plient 2-1 !
+              </h3>
+              
+              <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
+                Un match de caractère ! Menés au score, les bleus et blancs ont su se relever et remporter une victoire précieuse. Buts de Seid et Toga.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Buts</div>
+                  <div className="font-bold text-lg sm:text-xl">2</div>
+                </div>
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Duels gagnés</div>
+                  <div className="font-bold text-lg sm:text-xl">62%</div>
+                </div>
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Arrêts</div>
+                  <div className="font-bold text-lg sm:text-xl">7</div>
+                </div>
+                <div className="bg-gray-50 p-2 sm:p-3 rounded-lg">
+                  <div className="text-xs text-gray-500">Cartons</div>
+                  <div className="font-bold text-lg sm:text-xl">3 jaunes</div>
+                </div>
+              </div>
+              
+              <Link to="/news/8" className="block">
+                <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-gray-100">
+                  <span className="text-blue-600 font-semibold text-sm sm:text-base group-hover:text-blue-800 transition-colors">
+                    Découvrir l'analyse tactique →
+                  </span>
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
+                    <span className="text-sm sm:text-base">📊</span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bannière Leader */}
+        <div 
+          className="mt-8 sm:mt-12 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-300 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 shadow-lg sm:shadow-xl"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="mb-4 md:mb-0">
+              <span className="inline-block bg-white/30 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-2">
+                🏆 POSITION ACTUELLE
+              </span>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                AS Tasko est <span className="text-black">LEADER</span> de la D2 !
+              </h3>
+              <p className="text-white/90 text-sm sm:text-base mt-2">
+                2 matchs • 2 victoires • 6 points • 6 buts marqués • 1 encaissé
+              </p>
+            </div>
+            <div className="text-center md:text-right">
+              <div className="bg-white/20 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-lg sm:rounded-xl">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">1er</div>
+                <div className="text-white/90 text-xs sm:text-sm">sur 8 équipes</div>
+              </div>
+              <Link to="/news/9" className="inline-block mt-3 sm:mt-4 bg-white text-yellow-700 px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:bg-gray-100 transition-all text-sm sm:text-base">
+                Voir le classement complet →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
       {/* Section Toutes les actualités Premium */}
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6">
